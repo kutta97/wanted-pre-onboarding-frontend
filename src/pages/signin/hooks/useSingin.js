@@ -1,13 +1,13 @@
-const useSignup = () => {
-  const handleSignup = (e) => {
+const useSignin = () => {
+  const handleSignin = (e) => {
     e.preventDefault();
     const [email, password] = e.target.elements;
     console.log(email.value, password.value);
   };
 
   return {
-    handleSignup,
+    handleSignin,
   };
 };
 
-export default useSignup;
+export default useSignin;
