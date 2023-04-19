@@ -9,18 +9,11 @@ import { signin } from '@api/signin/signin';
 const useSignin = () => {
   const navigate = useNavigate();
 
-  const handleSignin = async (event) => {
-    event.preventDefault();
-
-    const [email, password] = event.target.elements;
-    const userInfo = {
-      email: email.value,
-      password: password.value,
-    };
-
-    const { accesToken } = await signin(userInfo);
-    if (!accesToken) {
-      setStorage(JWT_TOKEN, accesToken);
+  const handleSignin = async (accountData) => {
+    const rs = await signin(accountData);
+    const accessToken = rs.access_token;
+    if (accessToken) {
+      setStorage(JWT_TOKEN, accessToken);
       return navigate('/todo', { replace: true });
     }
     return null;

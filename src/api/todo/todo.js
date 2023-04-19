@@ -22,7 +22,7 @@ export const getTodos = async () => {
 
 export const updateTodo = async (id, todo) => {
   try {
-    const { data } = await authInstance.put(`/todos/:${id}`, todo);
+    const { data } = await authInstance.put(`/todos/${id}`, todo);
     return data;
   } catch (error) {
     console.error(error);
@@ -32,7 +32,7 @@ export const updateTodo = async (id, todo) => {
 
 export const deleteTodo = async (id) => {
   try {
-    const { data } = await authInstance.delete(`/todos/:${id}`);
+    const { data } = await authInstance.delete(`/todos/${id}`);
     return data;
   } catch (error) {
     console.error(error);

@@ -5,16 +5,8 @@ import { signup } from '@api/signup/signup';
 const useSignup = () => {
   const navigate = useNavigate();
 
-  const handleSignup = async (event) => {
-    event.preventDefault();
-
-    const [email, password] = event.target.elements;
-    const userInfo = {
-      email: email.value,
-      password: password.value,
-    };
-
-    const rs = await signup(userInfo);
+  const handleSignup = async (accountData) => {
+    const rs = await signup(accountData);
     if (!rs) {
       return navigate('/signin', { replace: true });
     }

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { validateEmail, validatePassword } from '@utils/validation';
 
-const useInputs = () => {
+const useAccountInputs = () => {
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -14,8 +14,8 @@ const useInputs = () => {
     setIsFormValid(validateEmail(email) && validatePassword(password));
   }, [inputs]);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setInputs({
       ...inputs,
       [name]: value,
@@ -28,4 +28,4 @@ const useInputs = () => {
   };
 };
 
-export default useInputs;
+export default useAccountInputs;
