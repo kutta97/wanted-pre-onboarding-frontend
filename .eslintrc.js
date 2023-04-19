@@ -17,6 +17,7 @@ module.exports = {
   plugins: ['react', 'react-hooks', 'import'],
   rules: {
     'react/function-component-definition': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
   },
