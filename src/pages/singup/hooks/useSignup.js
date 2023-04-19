@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { signup } from '../../../api/signup/signup';
+
+import { signup } from '@api/signup/signup';
 
 const useSignup = () => {
   const navigate = useNavigate();

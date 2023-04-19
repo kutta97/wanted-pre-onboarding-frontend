@@ -1,11 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Signup from './pages/singup/Signup';
-import Signin from './pages/signin/Singin';
-import Todo from './pages/todo/Todo';
-import RequireAuth from './components/layout/RequireAuth';
-import NoRequireAuth from './components/layout/NoRequireAuth';
-import Home from './pages/home/home';
+
+import NoRequireAuth from '@components/layout/NoRequireAuth';
+import RequireAuth from '@components/layout/RequireAuth';
+
+import Home from '@pages/home/home';
+import Signin from '@pages/signin/Singin';
+import Signup from '@pages/singup/Signup';
+import Todo from '@pages/todo/Todo';
 
 const App = () => (
   <Routes>

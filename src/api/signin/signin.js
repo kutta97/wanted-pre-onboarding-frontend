@@ -1,4 +1,4 @@
-import { baseInstance } from '..';
+import { baseInstance } from '@api';
 
 export const signin = async (userInfo) => {
   try {

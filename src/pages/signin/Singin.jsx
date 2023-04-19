@@ -1,6 +1,8 @@
 import React from 'react';
+
+import Inputs from '@components/inputs/Inputs';
+
 import useSignin from './hooks/useSingin';
-import Inputs from '../../components/inputs/Inputs';
 
 const Signin = () => {
   const { handleSignin } = useSignin();
