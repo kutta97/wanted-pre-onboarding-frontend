@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getUserData } from '@utils/formData';
+import { getAccountData } from '@utils/formData';
 
 import useAccountInputs from './hooks/useAccountInputs';
 
@@ -12,7 +12,7 @@ const AccountInputs = (props) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const accountData = getUserData(formData);
+    const accountData = getAccountData(formData);
     onSubmit?.(accountData);
   };
 

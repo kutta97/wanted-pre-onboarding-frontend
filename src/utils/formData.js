@@ -1,12 +1,12 @@
-export const getUserData = (formData) => {
+export const getAccountData = (formData) => {
   const email = formData.get('email');
   const password = formData.get('password');
 
-  const userData = {
+  const accountData = {
     email: String(email),
     password: String(password),
   };
-  return userData;
+  return accountData;
 };
 
 export const getTodoData = (formData) => {
