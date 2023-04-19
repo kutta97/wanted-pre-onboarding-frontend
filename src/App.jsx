@@ -1,29 +1,40 @@
 import React from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Signup from './pages/singup/Signup';
 import Signin from './pages/signin/Singin';
 import Todo from './pages/todo/Todo';
+import RequireAuth from './components/layout/RequireAuth';
+import NoRequireAuth from './components/layout/NoRequireAuth';
+import Home from './pages/home/home';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <p>Home</p>,
-    errorElement: <p>Not Found</p>,
-  },
-  {
-    path: '/signup',
-    element: <Signup />,
-  },
-  {
-    path: '/signin',
-    element: <Signin />,
-  },
-  {
-    path: '/todo',
-    element: <Todo />,
-  },
-]);
-
-const App = () => <RouterProvider router={router} />;
+const App = () => (
+  <Routes>
+    <Route path="*" element={<Home />} />
+    <Route
+      path="/signup"
+      element={
+        <NoRequireAuth>
+          <Signup />
+        </NoRequireAuth>
+      }
+    />
+    <Route
+      path="/signin"
+      element={
+        <NoRequireAuth>
+          <Signin />
+        </NoRequireAuth>
+      }
+    />
+    <Route
+      path="/todo"
+      element={
+        <RequireAuth>
+          <Todo />
+        </RequireAuth>
+      }
+    />
+  </Routes>
+);
 
 export default App;
