@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { getStorage } from '../utils/storage';
+import { JWT_TOKEN } from '../consts/localStorage';
 
 const BASE_URL = 'https://www.pre-onboarding-selection-task.shop/';
 
 const setInstanceHeaders = (instance) => {
   instance.interceptors.request.use(
     (config) => {
-      const token = getStorage('jwt_token');
+      const token = getStorage(JWT_TOKEN);
       return {
         ...config,
         headers: {
@@ -24,10 +25,7 @@ const baseApi = (url, options) => {
 };
 
 const authApi = (url, options) => {
-  const instance = axios.create({
-    baseURL: url,
-    ...options,
-  });
+  const instance = axios.create({ baseURL: url, ...options });
   setInstanceHeaders(instance);
   return instance;
 };
