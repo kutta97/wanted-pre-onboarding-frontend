@@ -6,25 +6,24 @@ import { setStorage } from '../../../utils/storage';
 const useSignin = () => {
   const navigate = useNavigate();
 
-  const handleSignin = async (e) => {
-    e.preventDefault();
-    const [email, password] = e.target.elements;
+  const handleSignin = async (event) => {
+    event.preventDefault();
+
+    const [email, password] = event.target.elements;
     const userInfo = {
       email: email.value,
       password: password.value,
     };
-    const { accesToken } = await signin(userInfo);
 
-    if (accesToken !== null) {
+    const { accesToken } = await signin(userInfo);
+    if (!accesToken) {
       setStorage(JWT_TOKEN, accesToken);
-      return navigate('/todo');
+      return navigate('/todo', { replace: true });
     }
     return null;
   };
 
-  return {
-    handleSignin,
-  };
+  return { handleSignin };
 };
 
 export default useSignin;
