@@ -1,0 +1,34 @@
+import axios from 'axios';
+import { getStorage } from '../utils/storage';
+import { JWT_TOKEN } from '../consts/localStorage';
+
+const BASE_URL = 'https://www.pre-onboarding-selection-task.shop/';
+
+const setInstanceHeaders = (instance) => {
+  instance.interceptors.request.use(
+    (config) => {
+      const token = getStorage(JWT_TOKEN);
+      return {
+        ...config,
+        headers: {
+          authorization: token ? `bearer ${token}` : null,
+        },
+      };
+    },
+    (error) => Promise.reject(error.response)
+  );
+};
+
+const baseApi = (url, options) => {
+  const instance = axios.create({ baseURL: url, ...options });
+  return instance;
+};
+
+const authApi = (url, options) => {
+  const instance = axios.create({ baseURL: url, ...options });
+  setInstanceHeaders(instance);
+  return instance;
+};
+
+export const baseInstance = baseApi(BASE_URL);
+export const authInstance = authApi(BASE_URL);
