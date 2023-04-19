@@ -1,8 +1,23 @@
+import { useNavigate } from 'react-router-dom';
+import { signup } from '../../../api/signup/signup';
+
 const useSignup = () => {
-  const handleSignup = (e) => {
+  const navigate = useNavigate();
+
+  const handleSignup = async (e) => {
     e.preventDefault();
     const [email, password] = e.target.elements;
-    console.log(email.value, password.value);
+    const userInfo = {
+      email: email.value,
+      password: password.value,
+    };
+
+    const rs = await signup(userInfo);
+
+    if (rs !== null) {
+      return navigate('/signin');
+    }
+    return null;
   };
 
   return {
