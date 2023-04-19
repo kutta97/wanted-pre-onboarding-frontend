@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { JWT_TOKEN } from '@consts/localStorage';
 
+import { getUserData } from '@utils/formData';
 import { setStorage } from '@utils/storage';
 
 import { signin } from '@api/signin/signin';
@@ -12,15 +13,13 @@ const useSignin = () => {
   const handleSignin = async (event) => {
     event.preventDefault();
 
-    const [email, password] = event.target.elements;
-    const userInfo = {
-      email: email.value,
-      password: password.value,
-    };
+    const formData = new FormData(event.currentTarget);
+    const userData = getUserData(formData);
 
-    const { accesToken } = await signin(userInfo);
-    if (!accesToken) {
-      setStorage(JWT_TOKEN, accesToken);
+    const rs = await signin(userData);
+    const accessToken = rs.access_token;
+    if (accessToken) {
+      setStorage(JWT_TOKEN, accessToken);
       return navigate('/todo', { replace: true });
     }
     return null;
