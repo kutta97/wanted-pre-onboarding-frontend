@@ -1,7 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { signin } from '../../../api/signin/signin';
-import { JWT_TOKEN } from '../../../consts/localStorage';
-import { setStorage } from '../../../utils/storage';
+
+import { JWT_TOKEN } from '@consts/localStorage';
+
+import { setStorage } from '@utils/storage';
+
+import { signin } from '@api/signin/signin';
 
 const useSignin = () => {
   const navigate = useNavigate();

@@ -1,4 +1,4 @@
-import { authInstance } from '..';
+import { authInstance } from '@api';
 
 export const createTodo = async (todo) => {
   try {

@@ -1,6 +1,8 @@
 import axios from 'axios';
-import { getStorage } from '../utils/storage';
-import { JWT_TOKEN } from '../consts/localStorage';
+
+import { JWT_TOKEN } from '@consts/localStorage';
+
+import { getStorage } from '@utils/storage';
 
 const BASE_URL = 'https://www.pre-onboarding-selection-task.shop/';
 

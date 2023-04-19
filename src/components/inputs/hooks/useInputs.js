@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { validateEmail, validatePassword } from '../../../utils/validation';
+
+import { validateEmail, validatePassword } from '@utils/validation';
 
 const useInputs = () => {
   const [inputs, setInputs] = useState({

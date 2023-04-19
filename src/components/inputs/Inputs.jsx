@@ -1,4 +1,5 @@
 import React from 'react';
+
 import useInputs from './hooks/useInputs';
 
 const Inputs = (props) => {

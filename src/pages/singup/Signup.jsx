@@ -1,6 +1,8 @@
 import React from 'react';
+
+import Inputs from '@components/inputs/Inputs';
+
 import useSignup from './hooks/useSignup';
-import Inputs from '../../components/inputs/Inputs';
 
 const Signup = () => {
   const { handleSignup } = useSignup();

@@ -18,6 +18,7 @@ module.exports = {
   rules: {
     'react/function-component-definition': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
   },
